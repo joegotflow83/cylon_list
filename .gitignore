@@ -1,0 +1,5 @@
+cylon_env/
+*.pyc
+listcylon/db.sqlite3
+.DS_Store
+listcylon/.DS_Store
