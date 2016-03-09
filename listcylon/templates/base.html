@@ -3,24 +3,19 @@
   <head>
     <title>{% block title %}{% endblock title %}</title>
     <!-- import -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
 	<body>
-	  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <ul class="nav nav-pills">
       {% if user.is_authenticated %}
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      {% else%}
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li role="presentation"><a href="{% url 'home' %}">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+        <li role="presenataion"><a href="{% url 'login' %}">Login</a></li>
+        <li role="presentation"><a href="{% url 'signup' %}">Sign Up</a></li>
       {% endif %}
-      </ul>
-    </div>
-    </nav>
+    </ul>
     {% block content %}
     {% endblock %}
 	</body>
