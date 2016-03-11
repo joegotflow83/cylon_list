@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Cars{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h3>All Cars in {{ request.user.userprofile.city_preference }}</h3>
+  <ul>
+  {% for car in object_list %}
+    <li><a href="{% url 'car_detail' car.id %}">{{ car.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

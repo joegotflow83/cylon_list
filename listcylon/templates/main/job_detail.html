@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'all_jobs_city' %}">{{ object.category }}</a></li>
+    <li class="active">{{ object.title }}</li>
+  </ol>
+  <h3>{{ object.title }}</h3>
+  {% if object.image %}
+    <img src={{ object.image.url }}>
+  {% endif %}
+  <p><strong>Description:</strong> {{ object.description }}</h3>
+<p><strong>City:</strong> {{ object.city }}</p>
+  <p><strong>Highlights:</strong> {{ object.highlight_skills }}</p>
+  <p><strong>Plus Skills:</strong> {{ object.plus_skills }}</p>
+  <p><strong>Employment Type:</strong> {{ object.employment_type }}</p>
+  <p><strong>Tags: </strong>{% for tag in object.tags.all %} {{ tag }} {% endfor %}</p>
+  <p><strong>Compensation:</strong> {{ object.compensation }}</p>
+</div>
+{% endblock %}

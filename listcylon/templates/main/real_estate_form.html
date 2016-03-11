@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block title %}Real Estate Post{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h3>Create a new real estate job</h3>
+  <form method="post" action="{% url 'create_real_estate_job' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form | as_bootstrap }}
+    <input type="submit" value="Create Post!" class="btn btn-success">
+  </form>
+</div>
+{% endblock %}

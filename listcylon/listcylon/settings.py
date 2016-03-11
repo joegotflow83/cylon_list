@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'taggit',
 
     # Local Apps
     'accounts',
+    'main',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,5 +126,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media URLS
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+# Login URLS
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/home/'

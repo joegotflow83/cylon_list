@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Accounting Jobs{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<ol class="breadcrumb">
+    <p>Display: </p>
+  	<li><a href="{% url 'accounting' %}">List</a></li>
+    <li><a href="{% url 'accounting_thumbnail' %}">Thumbnail</a></li>
+	</ol>
+  <ol class="breadcrumb pull-right">
+    <p>Order: </p>
+  	<li><a href="{% url 'newest_accounting' %}">Newest</a></li>
+    <li><a href="{% url 'highest_accounting' %}">Highest Compensation</a></li>
+		<li><a href="{% url 'lowest_accounting' %}">Lowest Compensation</a></li>
+	</ol>
+  <h3>Accounting Jobs</h3><a href="{% url 'create_accounting_job' %}" class="btn btn-info pull-right">Create Post!</a>
+  <ul>
+  {% for job in object_list %}
+  <li><a href="{% url 'job_detail' job.id %}">{{ job.title | linebreaks }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Buisness Jobs{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h3>Buisness Jobs</h3><a href="{% url 'create_buisness_job' %}" class="btn btn-info pull-right">Create Post</a>
+  <ul>
+  {% for job in object_list %}
+  <li><a href="{% url 'job_detail' job.id %}">{{ job.title | linebreaks }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

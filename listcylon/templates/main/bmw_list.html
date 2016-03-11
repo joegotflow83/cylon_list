@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}BMW{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h3>BMW Vehicles</h3>
+  <ul>
+  {% for car in object_list %}
+  <li><a href="{% url 'car_detail' car.id %}">{{ car.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

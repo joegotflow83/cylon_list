@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Jobs{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h3>All Jobs in {{ request.user.userprofile.city_preference }}</h3>
+  <ul>
+  {% for job in object_list %}
+    <li><a href="{% url 'job_detail' job.id %}">{{ job.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}
